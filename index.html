@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0c1424">
+  <title>Ремонт квартир и электрика под ключ — частный мастер Алексей Смирнов</title>
+  <meta name="description" content="Частный мастер по ремонту квартир и электрике. Фиксированная смета, гарантия 3 года, работа без посредников. Рассчитайте стоимость ремонта онлайн за 30 секунд.">
+  <meta property="og:title" content="Ремонт квартир и электрика под ключ — частный мастер">
+  <meta property="og:description" content="Аккуратный ремонт в срок и по фиксированной смете. Рассчитайте примерную стоимость онлайн.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#calculator">Перейти к калькулятору</a>
+
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a class="logo" href="#top" aria-label="Алексей Смирнов — на главную">
+        <span class="logo__mark">АС</span>
+        <span class="logo__text">
+          <strong>Алексей Смирнов</strong>
+          <small>ремонт квартир · электрика</small>
+        </span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Основная навигация">
+        <a class="nav__link" href="#services">Услуги и цены</a>
+        <a class="nav__link" href="#calculator">Калькулятор</a>
+        <a class="nav__link" href="#contact">Заявка</a>
+      </nav>
+
+      <div class="header__actions">
+        <a class="header__phone" href="tel:+79991234567">
+          <span class="header__phone-label">Звоните с 9:00 до 21:00</span>
+          <span class="header__phone-value">+7 (999) 123-45-67</span>
+        </a>
+        <button class="burger" type="button" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero__bg" aria-hidden="true">
+        <span class="hero__glow hero__glow--one"></span>
+        <span class="hero__glow hero__glow--two"></span>
+        <span class="hero__grid"></span>
+      </div>
+
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <p class="badge">
+            <span class="badge__dot" aria-hidden="true"></span>
+            Частный мастер · 12 лет опыта · без посредников
+          </p>
+
+          <h1 class="hero__title">
+            Ремонт квартир и электрика <span class="accent">под ключ</span> — в срок и по смете
+          </h1>
+
+          <p class="hero__lead">
+            Работаю сам и с проверенной командой: без бригадиров, накруток и «сюрпризов» в чеке.
+            Стоимость фиксирую в договоре, вывожу мусор и сдаю объект день в день.
+          </p>
+
+          <ul class="hero__benefits">
+            <li class="benefit">
+              <span class="benefit__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h10M4 17h7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M17 13.5l2.5 2.5L23 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="benefit__body">
+                <strong>Смета в договоре</strong>
+                <span>Цена не меняется по ходу работ</span>
+              </span>
+            </li>
+            <li class="benefit">
+              <span class="benefit__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v6c0 4.2-2.9 7.6-7 9-4.1-1.4-7-4.8-7-9V6l7-3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.8 12.2l2.2 2.2 4.2-4.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="benefit__body">
+                <strong>Гарантия 3 года</strong>
+                <span>Письменная гарантия на все работы</span>
+              </span>
+            </li>
+            <li class="benefit">
+              <span class="benefit__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4.5 13.5H11l-1 8.5L19.5 10H13V2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="benefit__body">
+                <strong>Электрика с допуском</strong>
+                <span>IV группа, схемы и акты по ГОСТ</span>
+              </span>
+            </li>
+            <li class="benefit">
+              <span class="benefit__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M4 19V9.5L12 4l8 5.5V19a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="benefit__body">
+                <strong>Материалы со скидкой</strong>
+                <span>До 25% дешевле розницы</span>
+              </span>
+            </li>
+          </ul>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary btn--lg" href="#calculator">
+              Рассчитать стоимость
+              <svg class="btn__arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M13 6.5L18.5 12 13 17.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn btn--ghost btn--lg" href="tel:+79991234567">Позвонить мастеру</a>
+          </div>
+
+          <dl class="hero__stats">
+            <div class="stat">
+              <dt>12 лет</dt>
+              <dd>на объектах</dd>
+            </div>
+            <div class="stat">
+              <dt>340+</dt>
+              <dd>сданных квартир</dd>
+            </div>
+            <div class="stat">
+              <dt>0 ₽</dt>
+              <dd>переплат посредникам</dd>
+            </div>
+            <div class="stat">
+              <dt>24 ч</dt>
+              <dd>на подготовку сметы</dd>
+            </div>
+          </dl>
+        </div>
+
+        <aside class="hero__card" aria-label="Ближайшие свободные окна">
+          <div class="hero__card-top">
+            <span class="pill pill--live"><span class="pill__dot" aria-hidden="true"></span>Беру новые объекты</span>
+            <span class="hero__card-month">декабрь</span>
+          </div>
+          <p class="hero__card-title">Свободно 2 места</p>
+          <p class="hero__card-sub">Выезд на замер и смета — бесплатно, в день обращения.</p>
+
+          <ul class="hero__card-list">
+            <li><span>Замер и смета</span><strong>0 ₽</strong></li>
+            <li><span>Демонтаж и вывоз мусора</span><strong>включено</strong></li>
+            <li><span>Уборка после ремонта</span><strong>включено</strong></li>
+          </ul>
+
+          <div class="hero__card-price">
+            <span class="hero__card-from">от</span>
+            <strong>4 500 ₽</strong>
+            <span class="hero__card-unit">/ м²</span>
+          </div>
+          <p class="hero__card-note">Косметический ремонт «под ключ»: работы и черновые материалы</p>
+
+          <a class="hero__card-link" href="#calculator">
+            Узнать цену для своей квартиры
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M13 6.5L18.5 12 13 17.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section services" id="services">
+      <div class="container">
+        <header class="section__head">
+          <p class="section__eyebrow">Услуги и цены</p>
+          <h2 class="section__title">Понятный прайс на основные виды работ</h2>
+          <p class="section__lead">
+            Ниже — реальные цены на работы. Материалы считаем отдельно по чекам поставщика,
+            со скидкой мастера. Смета фиксируется в договоре перед началом работ.
+          </p>
+        </header>
+
+        <div class="services__grid">
+          <article class="service-card service-card--featured">
+            <span class="service-card__tag">Хит</span>
+            <span class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-9.5z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+            </span>
+            <h3 class="service-card__title">Ремонт «под ключ»</h3>
+            <p class="service-card__text">
+              Полный цикл: демонтаж, черновые работы, инженерия, чистовая отделка и финальная уборка.
+            </p>
+            <ul class="service-card__list">
+              <li>Ведение объекта и закупка материалов</li>
+              <li>Фотоотчёт каждый день</li>
+              <li>Сдача по чек-листу из 120 пунктов</li>
+            </ul>
+            <p class="service-card__price"><strong>от 8 900 ₽</strong><span>/ м²</span></p>
+            <p class="service-card__term">Срок: 45–90 дней</p>
+            <a class="service-card__btn" href="#calculator" data-preset="full">Рассчитать</a>
+          </article>
+
+          <article class="service-card">
+            <span class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 20V8l8-5 8 5v12" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 20v-6h6v6" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+            </span>
+            <h3 class="service-card__title">Косметический ремонт</h3>
+            <p class="service-card__text">
+              Освежить квартиру без перепланировки: стены, потолки, полы, замена обоев и покраска.
+            </p>
+            <ul class="service-card__list">
+              <li>Выравнивание и шпаклёвка</li>
+              <li>Покраска и поклейка обоев</li>
+              <li>Укладка ламината и плинтуса</li>
+            </ul>
+            <p class="service-card__price"><strong>от 4 500 ₽</strong><span>/ м²</span></p>
+            <p class="service-card__term">Срок: 14–25 дней</p>
+            <a class="service-card__btn" href="#calculator" data-preset="cosmetic">Рассчитать</a>
+          </article>
+
+          <article class="service-card">
+            <span class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4.5 13.5H11l-1 8.5L19.5 10H13V2z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+            </span>
+            <h3 class="service-card__title">Электрика под ключ</h3>
+            <p class="service-card__text">
+              Замена проводки, щиты, розетки и освещение. Допуск IV группы, схемы и акты по ГОСТ.
+            </p>
+            <ul class="service-card__list">
+              <li>Щит с УЗО и дифавтоматами</li>
+              <li>Штробы, кабель ВВГнг-LS</li>
+              <li>Исполнительная схема в подарок</li>
+            </ul>
+            <p class="service-card__price"><strong>от 1 200 ₽</strong><span>/ точка</span></p>
+            <p class="service-card__term">Срок: 3–7 дней</p>
+            <a class="service-card__btn" href="#calculator" data-preset="electric">Рассчитать</a>
+          </article>
+
+          <article class="service-card">
+            <span class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M7 3h10l-1 5H8L7 3z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8 8h8v5a4 4 0 0 1-4 4 4 4 0 0 1-4-4V8z" stroke="currentColor" stroke-width="1.7"/><path d="M12 17v4M9 21h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            </span>
+            <h3 class="service-card__title">Санузел «под ключ»</h3>
+            <p class="service-card__text">
+              Гидроизоляция, разводка труб, плитка и монтаж сантехники — от чернового до готового.
+            </p>
+            <ul class="service-card__list">
+              <li>Гидроизоляция в два слоя</li>
+              <li>Укладка плитки и керамогранита</li>
+              <li>Подключение сантехники</li>
+            </ul>
+            <p class="service-card__price"><strong>от 95 000 ₽</strong><span>/ санузел</span></p>
+            <p class="service-card__term">Срок: 12–18 дней</p>
+            <a class="service-card__btn" href="#calculator" data-preset="bathroom">Рассчитать</a>
+          </article>
+
+          <article class="service-card">
+            <span class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M3 9h18M8 9v11" stroke="currentColor" stroke-width="1.7"/></svg>
+            </span>
+            <h3 class="service-card__title">Плитка и сантехработы</h3>
+            <p class="service-card__text">
+              Аккуратная укладка плитки, замена труб, установка ванн, душевых кабин и унитазов.
+            </p>
+            <ul class="service-card__list">
+              <li>Плитка ровно по уровню и шву</li>
+              <li>Замена стояков и разводка</li>
+              <li>Монтаж инсталляций</li>
+            </ul>
+            <p class="service-card__price"><strong>от 1 400 ₽</strong><span>/ м²</span></p>
+            <p class="service-card__term">Срок: от 2 дней</p>
+            <a class="service-card__btn" href="#calculator" data-preset="tile">Рассчитать</a>
+          </article>
+
+          <article class="service-card">
+            <span class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M14.5 3.5l6 6-9.5 9.5H5v-6l9.5-9.5z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M12 6l6 6" stroke="currentColor" stroke-width="1.7"/></svg>
+            </span>
+            <h3 class="service-card__title">Мелкий ремонт и «муж на час»</h3>
+            <p class="service-card__text">
+              Повесить полку, поменять смеситель, собрать мебель, заменить проводку в комнате.
+            </p>
+            <ul class="service-card__list">
+              <li>Выезд в день обращения</li>
+              <li>Свой инструмент и крепёж</li>
+              <li>Оплата после работы</li>
+            </ul>
+            <p class="service-card__price"><strong>от 1 500 ₽</strong><span>/ выезд</span></p>
+            <p class="service-card__term">Срок: 1–3 часа</p>
+            <a class="service-card__btn" href="#calculator" data-preset="small">Рассчитать</a>
+          </article>
+        </div>
+
+        <p class="services__note">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M12 8h.01M11.5 11.5h.5V16h.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          Цены указаны за работы. Точная стоимость зависит от состояния квартиры и материалов —
+          посчитайте ориентир в калькуляторе ниже или закажите бесплатный замер.
+        </p>
+      </div>
+    </section>
+
+    <section class="section calculator" id="calculator">
+      <div class="container">
+        <header class="section__head section__head--center">
+          <p class="section__eyebrow">Калькулятор</p>
+          <h2 class="section__title">Сколько будет стоить ваш ремонт</h2>
+          <p class="section__lead">
+            Ответьте на несколько вопросов — покажу вилку цены на работы. Это ориентир:
+            точную смету считаю на бесплатном замере.
+          </p>
+        </header>
+
+        <div class="calculator__layout">
+          <form class="calculator__form" id="calculator-form" novalidate>
+            <fieldset class="calc-step">
+              <legend class="calc-step__legend">
+                <span class="calc-step__num">1</span>
+                Тип помещения
+              </legend>
+              <div class="calc-rooms" role="radiogroup" aria-label="Тип помещения">
+                <label class="calc-room">
+                  <input type="radio" name="roomType" value="studio" data-k="1" data-label="Студия" checked>
+                  <span class="calc-room__box">
+                    <span class="calc-room__name">Студия</span>
+                    <span class="calc-room__meta">до 35 м²</span>
+                  </span>
+                </label>
+                <label class="calc-room">
+                  <input type="radio" name="roomType" value="1room" data-k="1.03" data-label="1-комнатная">
+                  <span class="calc-room__box">
+                    <span class="calc-room__name">1-комнатная</span>
+                    <span class="calc-room__meta">35–45 м²</span>
+                  </span>
+                </label>
+                <label class="calc-room">
+                  <input type="radio" name="roomType" value="2room" data-k="1.06" data-label="2-комнатная">
+                  <span class="calc-room__box">
+                    <span class="calc-room__name">2-комнатная</span>
+                    <span class="calc-room__meta">45–65 м²</span>
+                  </span>
+                </label>
+                <label class="calc-room">
+                  <input type="radio" name="roomType" value="3room" data-k="1.1" data-label="3 комнаты и больше">
+                  <span class="calc-room__box">
+                    <span class="calc-room__name">3 комнаты и больше</span>
+                    <span class="calc-room__meta">от 65 м²</span>
+                  </span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="calc-step">
+              <legend class="calc-step__legend">
+                <span class="calc-step__num">2</span>
+                Тип ремонта
+              </legend>
+              <div class="calc-work">
+                <label class="calc-work__item">
+                  <input type="radio" name="workType" value="cosmetic" data-rate="4500" data-label="Косметический" checked>
+                  <span class="calc-work__box">
+                    <span class="calc-work__name">Косметический</span>
+                    <span class="calc-work__desc">Обои, покраска, полы</span>
+                  </span>
+                </label>
+                <label class="calc-work__item">
+                  <input type="radio" name="workType" value="capital" data-rate="8900" data-label="Капитальный">
+                  <span class="calc-work__box">
+                    <span class="calc-work__name">Капитальный</span>
+                    <span class="calc-work__desc">Стены, стяжка, инженерия</span>
+                  </span>
+                </label>
+                <label class="calc-work__item">
+                  <input type="radio" name="workType" value="designer" data-rate="13500" data-label="Дизайнерский">
+                  <span class="calc-work__box">
+                    <span class="calc-work__name">Дизайнерский</span>
+                    <span class="calc-work__desc">Сложные формы и свет</span>
+                  </span>
+                </label>
+              </div>
+            </fieldset>
+
+
+
+            <fieldset class="calc-step">
+              <legend class="calc-step__legend">
+                <span class="calc-step__num">3</span>
+                Площадь помещения
+              </legend>
+              <div class="calc-area">
+                <div class="calc-area__head">
+                  <div class="calc-area__label">
+                    <span>Метраж</span>
+                    <span class="calc-area__value"><output id="area-output" for="area">45</output> м²</span>
+                  </div>
+                  <div class="calc-area__input">
+                    <input type="number" id="area-number" min="15" max="150" step="1" value="45" inputmode="numeric" aria-label="Площадь в квадратных метрах">
+                    <span aria-hidden="true">м²</span>
+                  </div>
+                </div>
+                <input class="range" type="range" id="area" name="area" min="15" max="150" step="1" value="45"
+                       aria-label="Площадь помещения" aria-valuetext="45 квадратных метров">
+                <div class="calc-area__scale" aria-hidden="true">
+                  <span>15 м²</span>
+                  <span>75 м²</span>
+                  <span>150 м²</span>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="calc-step">
+              <legend class="calc-step__legend">
+                <span class="calc-step__num">4</span>
+                Дополнительные работы
+                <span class="calc-step__hint">необязательно</span>
+              </legend>
+              <div class="calc-extras">
+                <label class="calc-extra">
+                  <input type="checkbox" name="extras" value="electric" data-price="900" data-per-m2="1" data-label="Электрика под ключ">
+                  <span class="calc-extra__box">
+                    <span class="calc-extra__check" aria-hidden="true"></span>
+                    <span class="calc-extra__text">
+                      <strong>Электрика под ключ</strong>
+                      <span>900 ₽/м²</span>
+                    </span>
+                  </span>
+                </label>
+                <label class="calc-extra">
+                  <input type="checkbox" name="extras" value="plumbing" data-price="700" data-per-m2="1" data-label="Сантехника и разводка труб">
+                  <span class="calc-extra__box">
+                    <span class="calc-extra__check" aria-hidden="true"></span>
+                    <span class="calc-extra__text">
+                      <strong>Сантехника и разводка труб</strong>
+                      <span>700 ₽/м²</span>
+                    </span>
+                  </span>
+                </label>
+                <label class="calc-extra">
+                  <input type="checkbox" name="extras" value="ceiling" data-price="550" data-per-m2="1" data-label="Натяжные потолки">
+                  <span class="calc-extra__box">
+                    <span class="calc-extra__check" aria-hidden="true"></span>
+                    <span class="calc-extra__text">
+                      <strong>Натяжные потолки</strong>
+                      <span>550 ₽/м²</span>
+                    </span>
+                  </span>
+                </label>
+                <label class="calc-extra">
+                  <input type="checkbox" name="extras" value="demolition" data-price="450" data-per-m2="1" data-label="Демонтаж старой отделки">
+                  <span class="calc-extra__box">
+                    <span class="calc-extra__check" aria-hidden="true"></span>
+                    <span class="calc-extra__text">
+                      <strong>Демонтаж старой отделки</strong>
+                      <span>450 ₽/м²</span>
+                    </span>
+                  </span>
+                </label>
+                <label class="calc-extra">
+                  <input type="checkbox" name="extras" value="garbage" data-price="6500" data-per-m2="0" data-label="Вывоз строительного мусора">
+                  <span class="calc-extra__box">
+                    <span class="calc-extra__check" aria-hidden="true"></span>
+                    <span class="calc-extra__text">
+                      <strong>Вывоз строительного мусора</strong>
+                      <span>6 500 ₽ за объект</span>
+                    </span>
+                  </span>
+                </label>
+                <label class="calc-extra">
+                  <input type="checkbox" name="extras" value="cleaning" data-price="90" data-per-m2="1" data-label="Финальная уборка">
+                  <span class="calc-extra__box">
+                    <span class="calc-extra__check" aria-hidden="true"></span>
+                    <span class="calc-extra__text">
+                      <strong>Финальная уборка</strong>
+                      <span>90 ₽/м²</span>
+                    </span>
+                  </span>
+                </label>
+              </div>
+            </fieldset>
+          </form>
+
+
+          <aside class="calc-summary" aria-live="polite">
+            <div class="calc-summary__top">
+              <p class="calc-summary__label">Предварительная стоимость работ</p>
+              <p class="calc-summary__price">
+                <span id="total-price">202 500</span><span class="calc-summary__currency">₽</span>
+              </p>
+              <p class="calc-summary__range">
+                вилка по рынку: <strong id="total-range">от 182 250 до 227 800 ₽</strong>
+              </p>
+            </div>
+
+            <ul class="calc-summary__rows">
+              <li>
+                <span>Тип ремонта</span>
+                <strong id="summary-work">Косметический</strong>
+              </li>
+              <li>
+                <span>Помещение</span>
+                <strong id="summary-room">Студия · 45 м²</strong>
+              </li>
+              <li>
+                <span>Работы по площади</span>
+                <strong id="summary-base">202 500 ₽</strong>
+              </li>
+              <li>
+                <span>Доп. работы</span>
+                <strong id="summary-extras">не выбраны</strong>
+              </li>
+            </ul>
+
+            <div class="calc-summary__note">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M12 8h.01M11.5 11.5h.5V16h.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+              <p>В расчёт входят работы. Черновые материалы — в среднем ещё 25–35% от суммы.</p>
+            </div>
+
+            <a class="btn btn--primary btn--block" href="#contact" id="calc-cta">
+              Отправить заявку
+              <svg class="btn__arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M13 6.5L18.5 12 13 17.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <p class="calc-summary__small">Смета бесплатно · ответ в течение 15 минут</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process">
+      <div class="container">
+        <header class="section__head section__head--center">
+          <p class="section__eyebrow">Как я работаю</p>
+          <h2 class="section__title">Четыре шага до готовой квартиры</h2>
+        </header>
+        <ol class="process__list">
+          <li class="process__item">
+            <span class="process__num">01</span>
+            <h3>Заявка и звонок</h3>
+            <p>Созваниваемся, обсуждаю задачу и ориентир по бюджету, подбираю время замера.</p>
+          </li>
+          <li class="process__item">
+            <span class="process__num">02</span>
+            <h3>Бесплатный замер</h3>
+            <p>Приезжаю с инструментом, проверяю стены, стяжку и проводку, замеряю площади.</p>
+          </li>
+          <li class="process__item">
+            <span class="process__num">03</span>
+            <h3>Смета и договор</h3>
+            <p>Присылаю детальную смету по позициям и график. Фиксируем цену и сроки в договоре.</p>
+          </li>
+          <li class="process__item">
+            <span class="process__num">04</span>
+            <h3>Ремонт и сдача</h3>
+            <p>Ежедневный фотоотчёт, сдача по чек-листу, гарантия 3 года и уборка в подарок.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+
+    <section class="section contact" id="contact">
+      <div class="container contact__inner">
+        <div class="contact__aside">
+          <p class="section__eyebrow">Заявка</p>
+          <h2 class="section__title">Посчитаем смету бесплатно и без обязательств</h2>
+          <p class="contact__lead">
+            Оставьте имя и телефон — перезвоню в течение 15 минут в рабочее время,
+            уточню детали и предложу удобное время для замера.
+          </p>
+
+          <ul class="contact__list">
+            <li>
+              <span class="contact__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M6.5 3h3l1.5 4-2 1.5a11 11 0 0 0 5.5 5.5L16 12l4 1.5v3a2 2 0 0 1-2.2 2A16 16 0 0 1 4 6.2 2 2 0 0 1 6 4V3z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+              </span>
+              <span>
+                <strong>+7 (999) 123-45-67</strong>
+                <span>Ежедневно с 9:00 до 21:00</span>
+              </span>
+            </li>
+            <li>
+              <span class="contact__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.7"/></svg>
+              </span>
+              <span>
+                <strong>Москва и область</strong>
+                <span>Выезд в пределах 30 км от МКАД</span>
+              </span>
+            </li>
+            <li>
+              <span class="contact__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M12 7.5V12l3 2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+              </span>
+              <span>
+                <strong>Ответ за 15 минут</strong>
+                <span>Даже если просто нужен совет</span>
+              </span>
+            </li>
+          </ul>
+
+          <div class="contact__quote">
+            <p>«Считаю, что ремонт — это про доверие. Поэтому все цифры в смете открыты, а сроки я держу.»</p>
+            <span class="contact__quote-author">Алексей, мастер с 2013 года</span>
+          </div>
+        </div>
+
+        <div class="contact__card">
+          <form class="lead-form" id="lead-form" novalidate>
+            <h3 class="lead-form__title">Получить смету и консультацию</h3>
+            <p class="lead-form__sub">Параметры из калькулятора подставлю в заявку автоматически.</p>
+
+            <div class="lead-form__calc-badge" id="form-calc-badge">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M8 7h8M8 11h2M8 15h2M14 11h2M14 15h2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+              <span id="form-calc-text">Студия · 45 м² · Косметический</span>
+            </div>
+
+            <input type="hidden" name="roomType" id="hidden-room" value="Студия">
+            <input type="hidden" name="workType" id="hidden-work" value="Косметический">
+            <input type="hidden" name="area" id="hidden-area" value="45">
+            <input type="hidden" name="extras" id="hidden-extras" value="">
+            <input type="hidden" name="total" id="hidden-total" value="202500">
+
+            <div class="field">
+              <label class="field__label" for="name">Ваше имя</label>
+              <input class="field__input" type="text" id="name" name="name" placeholder="Например, Мария"
+                     autocomplete="name" required minlength="2" maxlength="40">
+              <p class="field__error" id="name-error" role="alert"></p>
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="phone">Телефон</label>
+              <input class="field__input" type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__"
+                     autocomplete="tel" inputmode="tel" required maxlength="18">
+              <p class="field__error" id="phone-error" role="alert"></p>
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="comment">Комментарий <span class="field__optional">необязательно</span></label>
+              <textarea class="field__input field__input--area" id="comment" name="comment" rows="3"
+                        maxlength="400" placeholder="Адрес, сроки, что важно учесть"></textarea>
+            </div>
+
+            <label class="checkbox">
+              <input type="checkbox" id="agree" name="agree" checked required>
+              <span class="checkbox__box" aria-hidden="true"></span>
+              <span class="checkbox__text">Согласен на обработку персональных данных</span>
+            </label>
+            <p class="field__error field__error--agree" id="agree-error" role="alert"></p>
+
+            <button class="btn btn--primary btn--block btn--lg" type="submit" id="submit-btn">
+              <span class="btn__label">Отправить заявку</span>
+              <span class="btn__spinner" aria-hidden="true"></span>
+            </button>
+
+            <p class="lead-form__policy">
+              Никакого спама и звонков от «партнёров» — только по вашей заявке.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a class="logo logo--footer" href="#top">
+          <span class="logo__mark">АС</span>
+          <span class="logo__text">
+            <strong>Алексей Смирнов</strong>
+            <small>ремонт квартир · электрика</small>
+          </span>
+        </a>
+        <p class="footer__note">
+          Частный мастер. Работаю по договору, даю гарантию 3 года на все виды работ.
+        </p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Навигация в подвале">
+        <a href="#services">Услуги и цены</a>
+        <a href="#calculator">Калькулятор</a>
+        <a href="#contact">Оставить заявку</a>
+      </nav>
+
+      <div class="footer__contacts">
+        <a class="footer__phone" href="tel:+79991234567">+7 (999) 123-45-67</a>
+        <span>Москва и область · 9:00–21:00</span>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>© <span id="year">2026</span> Алексей Смирнов. Все права защищены.</p>
+      <p>ИП Смирнов А. В. · ИНН 770000000000</p>
+    </div>
+  </footer>
+
+  <button class="to-top" type="button" id="to-top" aria-label="Наверх">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 19V5M6.5 10.5L12 5l5.5 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true">
+    <div class="toast__card">
+      <span class="toast__icon" id="toast-icon" aria-hidden="true">
+        <svg class="toast__svg toast__svg--ok" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6" opacity=".35"/><path d="M7.5 12.5l3 3 6-6.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg class="toast__svg toast__svg--err" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6" opacity=".35"/><path d="M9 9l6 6M15 9l-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+      </span>
+      <div class="toast__body">
+        <p class="toast__title" id="toast-title">Заявка отправлена</p>
+        <p class="toast__text" id="toast-text">Спасибо! Перезвоню в течение 15 минут.</p>
+      </div>
+      <button class="toast__close" type="button" id="toast-close" aria-label="Закрыть уведомление">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <span class="toast__progress" aria-hidden="true"></span>
+    </div>
+  </div>
+
+  <div class="success-modal" id="success-modal" role="dialog" aria-modal="true"
+       aria-labelledby="success-modal-title" aria-hidden="true">
+    <div class="success-modal__overlay" data-success-close></div>
+    <div class="success-modal__card" role="document">
+      <button class="success-modal__close" type="button" id="success-modal-close"
+              aria-label="Закрыть окно" data-success-close>
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+
+      <div class="success-modal__hero">
+        <span class="success-modal__check" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <h2 class="success-modal__title" id="success-modal-title">Заявка успешно принята!</h2>
+        <p class="success-modal__note">
+          В демо-версии отправка в Telegram отключена — данные никуда не ушли.
+        </p>
+      </div>
+
+      <div class="success-modal__section">
+        <h3 class="success-modal__subtitle">Данные клиента</h3>
+        <dl class="success-modal__rows">
+          <div class="success-modal__row">
+            <dt>Имя</dt>
+            <dd id="success-name">—</dd>
+          </div>
+          <div class="success-modal__row">
+            <dt>Телефон</dt>
+            <dd id="success-phone">—</dd>
+          </div>
+          <div class="success-modal__row">
+            <dt>Комментарий</dt>
+            <dd id="success-comment">не указан</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="success-modal__section">
+        <h3 class="success-modal__subtitle">Расчёт калькулятора</h3>
+        <dl class="success-modal__rows">
+          <div class="success-modal__row">
+            <dt>Помещение</dt>
+            <dd id="success-room">—</dd>
+          </div>
+          <div class="success-modal__row">
+            <dt>Тип ремонта</dt>
+            <dd id="success-work">—</dd>
+          </div>
+          <div class="success-modal__row">
+            <dt>Площадь</dt>
+            <dd id="success-area">—</dd>
+          </div>
+          <div class="success-modal__row">
+            <dt>Доп. работы</dt>
+            <dd id="success-extras">не выбраны</dd>
+          </div>
+        </dl>
+
+        <div class="success-modal__total">
+          <span class="success-modal__total-label">Предварительная стоимость</span>
+          <p class="success-modal__total-value">
+            <span id="success-total">0</span><span class="success-modal__currency">₽</span>
+          </p>
+          <p class="success-modal__total-range" id="success-range"></p>
+        </div>
+      </div>
+
+      <button class="btn btn--primary btn--block btn--lg" type="button" id="success-modal-ok">
+        <span class="btn__label">Понятно</span>
+      </button>
+
+      <p class="success-modal__small">
+        Это демо-лендинг: форма показывает результат, но не отправляет заявки.
+      </p>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
