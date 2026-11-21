@@ -386,15 +386,15 @@
                 <div class="calc-area__head">
                   <div class="calc-area__label">
                     <span>Метраж</span>
-                    <span class="calc-area__value"><output id="area-output" for="area">45</output> м²</span>
+                    <span class="calc-area__value"><output id="area-output" for="area">28</output> м²</span>
                   </div>
                   <div class="calc-area__input">
-                    <input type="number" id="area-number" min="15" max="150" step="1" value="45" inputmode="numeric" aria-label="Площадь в квадратных метрах">
+                    <input type="number" id="area-number" min="15" max="150" step="1" value="28" inputmode="numeric" aria-label="Площадь в квадратных метрах">
                     <span aria-hidden="true">м²</span>
                   </div>
                 </div>
-                <input class="range" type="range" id="area" name="area" min="15" max="150" step="1" value="45"
-                       aria-label="Площадь помещения" aria-valuetext="45 квадратных метров">
+                <input class="range" type="range" id="area" name="area" min="15" max="150" step="1" value="28"
+                       aria-label="Площадь помещения" aria-valuetext="28 квадратных метров">
                 <div class="calc-area__scale" aria-hidden="true">
                   <span>15 м²</span>
                   <span>75 м²</span>
@@ -479,10 +479,10 @@
             <div class="calc-summary__top">
               <p class="calc-summary__label">Предварительная стоимость работ</p>
               <p class="calc-summary__price">
-                <span id="total-price">202 500</span><span class="calc-summary__currency">₽</span>
+                <span id="total-price">126 000</span><span class="calc-summary__currency">₽</span>
               </p>
               <p class="calc-summary__range">
-                вилка по рынку: <strong id="total-range">от 182 250 до 227 800 ₽</strong>
+                вилка по рынку: <strong id="total-range">от 113 400 до 141 800 ₽</strong>
               </p>
             </div>
 
@@ -493,11 +493,11 @@
               </li>
               <li>
                 <span>Помещение</span>
-                <strong id="summary-room">Студия · 45 м²</strong>
+                <strong id="summary-room">Студия · 28 м²</strong>
               </li>
               <li>
                 <span>Работы по площади</span>
-                <strong id="summary-base">202 500 ₽</strong>
+                <strong id="summary-base">126 000 ₽</strong>
               </li>
               <li>
                 <span>Доп. работы</span>
@@ -605,14 +605,14 @@
 
             <div class="lead-form__calc-badge" id="form-calc-badge">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M8 7h8M8 11h2M8 15h2M14 11h2M14 15h2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
-              <span id="form-calc-text">Студия · 45 м² · Косметический</span>
+              <span id="form-calc-text">Студия · 28 м² · Косметический</span>
             </div>
 
             <input type="hidden" name="roomType" id="hidden-room" value="Студия">
             <input type="hidden" name="workType" id="hidden-work" value="Косметический">
-            <input type="hidden" name="area" id="hidden-area" value="45">
+            <input type="hidden" name="area" id="hidden-area" value="28">
             <input type="hidden" name="extras" id="hidden-extras" value="">
-            <input type="hidden" name="total" id="hidden-total" value="202500">
+            <input type="hidden" name="total" id="hidden-total" value="126000">
 
             <div class="field">
               <label class="field__label" for="name">Ваше имя</label>
@@ -722,50 +722,15 @@
         <span class="success-modal__check" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </span>
-        <h2 class="success-modal__title" id="success-modal-title">Заявка успешно принята!</h2>
+        <h2 class="success-modal__title" id="success-modal-title">Заявка готова к отправке</h2>
         <p class="success-modal__note">
-          В демо-версии отправка в Telegram отключена — данные никуда не ушли.
+          Проверьте текст заявки и отправьте его мастеру удобным способом.
         </p>
       </div>
 
       <div class="success-modal__section">
-        <h3 class="success-modal__subtitle">Данные клиента</h3>
-        <dl class="success-modal__rows">
-          <div class="success-modal__row">
-            <dt>Имя</dt>
-            <dd id="success-name">—</dd>
-          </div>
-          <div class="success-modal__row">
-            <dt>Телефон</dt>
-            <dd id="success-phone">—</dd>
-          </div>
-          <div class="success-modal__row">
-            <dt>Комментарий</dt>
-            <dd id="success-comment">не указан</dd>
-          </div>
-        </dl>
-      </div>
-
-      <div class="success-modal__section">
-        <h3 class="success-modal__subtitle">Расчёт калькулятора</h3>
-        <dl class="success-modal__rows">
-          <div class="success-modal__row">
-            <dt>Помещение</dt>
-            <dd id="success-room">—</dd>
-          </div>
-          <div class="success-modal__row">
-            <dt>Тип ремонта</dt>
-            <dd id="success-work">—</dd>
-          </div>
-          <div class="success-modal__row">
-            <dt>Площадь</dt>
-            <dd id="success-area">—</dd>
-          </div>
-          <div class="success-modal__row">
-            <dt>Доп. работы</dt>
-            <dd id="success-extras">не выбраны</dd>
-          </div>
-        </dl>
+        <h3 class="success-modal__subtitle">Текст заявки</h3>
+        <p class="success-modal__note" id="success-text">—</p>
 
         <div class="success-modal__total">
           <span class="success-modal__total-label">Предварительная стоимость</span>
@@ -776,13 +741,23 @@
         </div>
       </div>
 
-      <button class="btn btn--primary btn--block btn--lg" type="button" id="success-modal-ok">
-        <span class="btn__label">Понятно</span>
+      <button class="btn btn--primary btn--block btn--lg" type="button" id="success-copy">
+        <span class="btn__label">Скопировать текст</span>
       </button>
 
-      <p class="success-modal__small">
-        Это демо-лендинг: форма показывает результат, но не отправляет заявки.
-      </p>
+      <a class="btn btn--ghost btn--block btn--lg" id="success-whatsapp"
+         href="https://wa.me/79991234567" target="_blank" rel="noopener">
+        Отправить в WhatsApp
+      </a>
+
+      <a class="btn btn--ghost btn--block btn--lg" id="success-telegram"
+         href="https://t.me/share/url" target="_blank" rel="noopener">
+        Отправить в Telegram
+      </a>
+
+      <button class="btn btn--ghost btn--block" type="button" id="success-modal-ok">
+        <span class="btn__label">Понятно</span>
+      </button>
     </div>
   </div>
 

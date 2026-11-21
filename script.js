@@ -7,11 +7,11 @@
   'use strict';
 
   /* --------------------------------------------------------------------------
-     Демо-режим
+     Заявка
      -------------------------------------------------------------------------- */
 
-  /* Заявки никуда не отправляются: ни на сервер, ни в Telegram.
-     После успешной валидации показываем окно с данными клиента и расчётом. */
+  /* Заявки не уходят на сервер: после валидации показываем окно с готовым
+     текстом заявки, который можно скопировать или отправить в мессенджер. */
 
   var AREA_MIN = 15;
   var AREA_MAX = 150;
@@ -238,7 +238,7 @@
     roomK: 1,
     workLabel: 'Косметический',
     rate: 4500,
-    area: 45,
+    area: 28,
     extras: [],
     base: 0,
     total: 0
@@ -388,10 +388,28 @@
     calculate();
   }
 
+  /* Средняя площадь для каждого типа помещения */
+  var ROOM_DEFAULT_AREA = {
+    studio: 28,
+    '1room': 40,
+    '2room': 55,
+    '3room': 75
+  };
+
   if (calcForm) {
     calcForm.addEventListener('change', function (event) {
       var target = event.target;
       if (!target || !target.name) return;
+
+      // при выборе типа помещения подставляем среднюю площадь и сразу пересчитываем итог
+      if (target.name === 'roomType') {
+        var defaultArea = ROOM_DEFAULT_AREA[target.value];
+        if (defaultArea) {
+          setArea(defaultArea);
+          return;
+        }
+      }
+
       if (target.name === 'roomType' || target.name === 'workType' || target.name === 'extras') {
         calculate();
       }
@@ -646,8 +664,10 @@
   }
 
   /* --------------------------------------------------------------------------
-     Демо-режим заявки: вместо отправки показываем окно успеха
+     Окно успеха: готовый текст заявки + копирование и отправка в мессенджеры
      -------------------------------------------------------------------------- */
+
+  var MASTER_PHONE = '79991234567';
 
   var successModal = document.getElementById('success-modal');
   var successCard = successModal
@@ -655,35 +675,71 @@
     : null;
   var successCloseBtn = document.getElementById('success-modal-close');
   var successOkBtn = document.getElementById('success-modal-ok');
+  var successCopyBtn = document.getElementById('success-copy');
+  var successWhatsappLink = document.getElementById('success-whatsapp');
+  var successTelegramLink = document.getElementById('success-telegram');
 
-  var successNameEl = document.getElementById('success-name');
-  var successPhoneEl = document.getElementById('success-phone');
-  var successCommentEl = document.getElementById('success-comment');
-  var successRoomEl = document.getElementById('success-room');
-  var successWorkEl = document.getElementById('success-work');
-  var successAreaEl = document.getElementById('success-area');
-  var successExtrasEl = document.getElementById('success-extras');
+  var successTextEl = document.getElementById('success-text');
   var successTotalEl = document.getElementById('success-total');
   var successRangeEl = document.getElementById('success-range');
 
   var lastFocusedElement = null;
+  var lastLeadText = '';
 
   function setText(element, value) {
     if (element) element.textContent = value;
+  }
+
+  /* Готовый текст заявки для копирования и мессенджеров */
+  function buildLeadText(data) {
+    return [
+      'Заявка на ремонт',
+      'Имя: ' + (data.name || '—'),
+      'Телефон: ' + (data.phone || '—'),
+      'Помещение: ' + (data.roomType || '—'),
+      'Тип ремонта: ' + (data.workType || '—'),
+      'Площадь: ' + (data.area ? data.area + ' м²' : '—'),
+      'Доп. работы: ' + (data.extras || 'не выбраны'),
+      'Предварительная стоимость: ' + formatMoney(data.total || 0) + ' ₽',
+      'Комментарий: ' + (data.comment || 'не указан')
+    ].join('\n');
+  }
+
+  function fallbackCopy(text) {
+    var area = document.createElement('textarea');
+    area.value = text;
+    area.setAttribute('readonly', '');
+    area.style.position = 'fixed';
+    area.style.top = '-1000px';
+    area.style.opacity = '0';
+    document.body.appendChild(area);
+    area.select();
+
+    var ok = false;
+    try {
+      ok = document.execCommand('copy');
+    } catch (error) {
+      ok = false;
+    }
+
+    document.body.removeChild(area);
+    return ok;
   }
 
   function openSuccessModal(data) {
     if (!successModal) return;
 
     var total = data.total || 0;
+    var text = buildLeadText(data);
 
-    setText(successNameEl, data.name || '—');
-    setText(successPhoneEl, data.phone || '—');
-    setText(successCommentEl, data.comment || 'не указан');
-    setText(successRoomEl, data.roomType || '—');
-    setText(successWorkEl, data.workType || '—');
-    setText(successAreaEl, data.area ? data.area + ' м²' : '—');
-    setText(successExtrasEl, data.extras || 'не выбраны');
+    lastLeadText = text;
+
+    if (successTextEl) {
+      // сохраняем переводы строк в тексте заявки
+      successTextEl.style.whiteSpace = 'pre-line';
+      successTextEl.textContent = text;
+    }
+
     setText(successTotalEl, formatMoney(total));
     setText(
       successRangeEl,
@@ -693,6 +749,19 @@
         formatMoney(roundTo(total * 1.125, 100)) +
         ' ₽'
     );
+
+    if (successWhatsappLink) {
+      successWhatsappLink.href =
+        'https://wa.me/' + MASTER_PHONE + '?text=' + encodeURIComponent(text);
+    }
+
+    if (successTelegramLink) {
+      successTelegramLink.href =
+        'https://t.me/share/url?url=' +
+        encodeURIComponent(window.location.href.split('#')[0]) +
+        '&text=' +
+        encodeURIComponent(text);
+    }
 
     lastFocusedElement = document.activeElement;
 
@@ -707,7 +776,11 @@
       successCard.classList.add('is-shown');
     }
 
-    if (successOkBtn) successOkBtn.focus();
+    if (successCopyBtn) {
+      successCopyBtn.focus();
+    } else if (successOkBtn) {
+      successOkBtn.focus();
+    }
   }
 
   function closeSuccessModal() {
@@ -735,6 +808,39 @@
 
     if (successOkBtn) {
       successOkBtn.addEventListener('click', closeSuccessModal);
+    }
+
+    if (successCopyBtn) {
+      var copyLabel = successCopyBtn.querySelector('.btn__label');
+      var copyLabelDefault = copyLabel ? copyLabel.textContent : '';
+      var copyLabelTimer = null;
+
+      var showCopyResult = function (ok) {
+        if (!copyLabel) return;
+        copyLabel.textContent = ok ? 'Текст скопирован ✓' : 'Не удалось — скопируйте вручную';
+        if (copyLabelTimer) clearTimeout(copyLabelTimer);
+        copyLabelTimer = setTimeout(function () {
+          copyLabel.textContent = copyLabelDefault;
+        }, 2500);
+      };
+
+      successCopyBtn.addEventListener('click', function () {
+        if (!lastLeadText) return;
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(lastLeadText).then(
+            function () {
+              showCopyResult(true);
+            },
+            function () {
+              showCopyResult(fallbackCopy(lastLeadText));
+            }
+          );
+          return;
+        }
+
+        showCopyResult(fallbackCopy(lastLeadText));
+      });
     }
 
     document.addEventListener('keydown', function (event) {
@@ -802,7 +908,7 @@
 
       var data = collectFormData();
 
-      // Демо-режим: заявка никуда не уходит, сразу показываем окно успеха
+      // Показываем окно успеха с готовым текстом заявки и кнопками отправки
       openSuccessModal(data);
 
       leadForm.reset();
